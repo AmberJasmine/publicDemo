@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="../js/vue.js"></script>
+
+	</head>
+
+	<body>
+		<div id="app">
+			<p>{{message}}</p>
+			<label>addone:</label><label id="lab1">0</label>
+			<button onclick="addone()">addone</button>
+
+			<hr />
+			<label>addone:</label><label id="lab1">0</label>
+			<button onclick="addone()">addone</button>
+
+			<br />
+			<hr />
+			<input type="text" :value="message" id='text_1' />
+			<button @click='testTemp()'>@()</button>//谷歌不支持
+			<button @click='getEleById'>@</button>
+			<button onclick='testTemp()'>onclick()</button>
+			<button onclick='getEleById'>onclick</button>//
+
+			<hr />
+			<hr />
+			<p id="test">这是段落中的 <b style="color: red;">粗体</b> 文本。</p>
+			<button></button>
+
+			<hr />
+			<hr />
+			<p id='p001' v-html='me'></p>
+			<p id='p002' v-text='me'></p>
+			<button onclick='$("#p001").html("gaibian<b>粗体</b>")'>赋值html</button>
+			<button onclick='$("#p001").text("gaibian<b>粗体</b>")'>赋值text</button>
+
+			<button onclick='alert($("#p001").html())'>jquery获取html</button>
+			<button onclick='alert($("#p001").text())'>jquery获取text</button>
+
+			<button onclick='alert(document.getElementById("p001").innerHTML)'>document获取html</button>
+			<button onclick='alert(document.getElementById("p001").innerText)'>document获取text</button>
+
+			<p>4</p>
+
+			<hr />
+			<hr />
+			<label title="label_01" id="label_01">label获取值</label>
+			<button onclick='alert(document.getElementById("label_01").innerHTML)'>onclick</button>
+			<button @click='alert(document.getElementById("label_01").innerText)'>@click</button>//谷歌不支持
+			<button @click='alert("000")'>@click</button>//谷歌不支持
+
+<hr />
+			<hr />
+			<input value="input" title="input" id="input_01"/>
+			<button @click='alert(document.getElementById("input_01").value)'>@click</button>//谷歌不支持
+			<button onclick='alert(document.getElementById("input_01").value)'>onclick</button><br />
+
+		</div>
+
+		<script>
+			new Vue({
+				el: "#app",
+				data: {
+					message: "Hello",
+					me: '这是段落中的 <b style="color: red;">粗体</b> 文本'
+				},
+				methods: {
+					getEleById: function() {
+						alert($("#text_1").val());
+						alert(document.getElementById("#text_1").value+"???");
+
+					}
+				}
+			});
+
+			var num = 0;
+
+			function addone() {
+				num++;
+				var temp = $("#lab1").html(num);
+
+			}
+
+			function testTemp() {
+				alert($("#text_1").val());
+				alert(document.getElementById("#text_1").value);
+
+			}
+		</script>
+
+	</body>
+
+</html>
