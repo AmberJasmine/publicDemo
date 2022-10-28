@@ -17,9 +17,10 @@ public class SpringbootJjwtApplicationTests {
 
     @Autowired
     private DataSource dataSource;
+
     @Test
     public void contextLoads() throws SQLException {
-        Connection connection = dataSource.getConnection();
+        Connection connection = this.dataSource.getConnection();
         System.out.println("connection = " + connection);
         connection.close();
 
